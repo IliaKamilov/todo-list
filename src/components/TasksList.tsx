@@ -163,7 +163,9 @@ const TasksList: React.FC<{ tasks: ITask[], onChange: (newState: ITask[]) => voi
                         <div className={classes.header}>
                             <ItemsFilter />
                         </div>
-                        <button className={classes.deleteAllButton} onClick={handleDeleteAll}>מחק הכל</button>
+                        {
+                            filtered.tasks.length > 0 && <button className={classes.deleteAllButton} onClick={handleDeleteAll}>מחק הכל</button>
+                        }
                     </>
                 }
                 <div className={classes.list}>
