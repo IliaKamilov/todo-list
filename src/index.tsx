@@ -4,9 +4,20 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import LocalDatabase from './db/index'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+
+export const db = new LocalDatabase()
+
+const theme = createMuiTheme({
+  direction: 'rtl'
+})
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App data={db.getTasks()} />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
